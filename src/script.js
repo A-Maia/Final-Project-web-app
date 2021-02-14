@@ -41,6 +41,7 @@ function showCurrentData(response) {
   let windCurrent = document.querySelector("#wind");
   let maxTempCurrent = document.querySelector("#max-temp");
   let minTempCurrent = document.querySelector("#min-temp");
+  let iconCurrent = document.querySelector("#image");
 
   temperatureCurrent.innerHTML = Math.round(response.data.main.temp);
   cityCurrent.innerHTML = response.data.name;
@@ -49,10 +50,15 @@ function showCurrentData(response) {
   windCurrent.innerHTML = `${Math.round(response.data.wind.speed)}km/h`;
   maxTempCurrent.innerHTML = `↑${Math.round(response.data.main.temp_max)}°C`;
   minTempCurrent.innerHTML = `↓${Math.round(response.data.main.temp_min)}°C`;
+  iconCurrent.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconCurrent.setAttribute("alt", response.data.weather[0].description);
 }
 
 let apiKey = "3cd7c0aa89391f850a62418573a9be62";
-let city = "Paris";
+let city = "London";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(showCurrentData);
