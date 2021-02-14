@@ -22,27 +22,44 @@ let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${a
 
 axios.get(apiUrl).then(showCurrentData);
 
-let cityCurrent = response.data.name;
-let city = document.querySelector("#city");
-city.innerHTML = `${cityCurrent}`;
+let now = new Date();
 
-let weatherCurrent = response.data.weather[0].description;
-let weather = document.querySelector("#weather");
-weather.innerHTML = `${weatherCurrent}`;
+//let timeHour = now.getHours();
+//if (timeHour < 10) {
+//timeHour = `0${timehour}`;
+//}
+//let timeMinutes = now.getMinutes();
+//if (timeMinutes < 10) {
+//timeMinutes = `0${timeMinutes}`;
+//}
 
-let temperatureCurrent = Math.round(response.data.main.temp);
-let temperature = document.querySelector("#temp");
-temperature.innerHTML = `${temperatureCurrent}`;
+let days = [
+  `Sunday`,
+  `Monday`,
+  `Tuesday`,
+  `Wednesday`,
+  `Thursday`,
+  `Friday`,
+  `Saturday`,
+];
 
-let humidityCurrent = response.data.main.humidity;
-let humidity = document.querySelector("#hum");
-humidity.innerHTML = `Humidity:${humidityCurrent}%`;
+let months = [
+  `Jan`,
+  `Feb`,
+  `Mar`,
+  `Apr`,
+  `May`,
+  `Jun`,
+  `Jul`,
+  `Aug`,
+  `Sep`,
+  `Oct`,
+  `Nov`,
+  `Dec`,
+];
+let weekday = days[now.getDay()];
+let month = months[now.getMonth()];
+let year = now.getFullYear();
 
-let windCurrentspeed = response.data.wind.speed;
-let wind = document.querySelector("#wind");
-wind.innerHTML = `Wind:${windCurrentspeed} m/s`;
-
-let tempMaxCurrent = Math.round(response.data.main.temp_max);
-let tempMinCurrent = Math.round(response.data.main.temp_min);
-let tempMaxMin = document.querySelector("#max-min");
-tempMaxMin.innerHTML = `${tempMaxCurrent}°|${tempMinCurrent}°`;
+let dateCurrent = document.querySelector("#date");
+dateCurrent.innerHTML = `${weekday}, ${month} ${year}`;
