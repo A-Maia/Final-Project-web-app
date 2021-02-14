@@ -10,89 +10,104 @@
       integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/style.css" />
   </head>
 
   <body>
     <div class="container">
-      <div class="top">
-        <h3>Saturday, Jun 15</h3>
-        <h1>London</h1>
-        <p class="image">☁️</p>
-      </div>
+      <div class="wrapper">
+        <div class="top">
+          <p>Saturday, Jun 15</p>
+          <h1>London</h1>
+          <img src="image/sun.jpeg" alt="sun with sunglasses" />
+        </div>
 
-      <div class="data-temp">
-        <div class="row">
-          <div class="col-6">
-            <p class="temperature">21°C|F</p>
+        <div class="data-temp">
+          <div class="row">
+            <div class="col-6">
+              <p class="temperature">21<span class="units">°C|F</span></p>
+            </div>
+            <div class="col-6">
+              <ul>
+                <li class="state">Cloud</li>
+                <li class="max-temp">↑ 20</li>
+                <li class="min-temp">↓ 6</li>
+              </ul>
+            </div>
           </div>
-          <div class="col-6">
-            <ul>
-              <li class="state">Cloud</li>
-              <li class="max-temp">↑ 20</li>
-              <li class="min-temp">↓ 6</li>
-            </ul>
+        </div>
+
+        <div class="data">
+          <div class="row">
+            <div class="col-4">
+              <ul>
+                <li class="humifity">Humidity</li>
+                <li class="humidity-value">68%</li>
+              </ul>
+            </div>
+            <div class="col-4">
+              <ul>
+                <li class="wind">Wind</li>
+                <li class="wind-value">68%</li>
+              </ul>
+            </div>
+            <div class="col-4">
+              <ul>
+                <li class="precipitation">Precipitation</li>
+                <li class="precipitation-value">68%</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <hr />
+
+        <div class="forecast">
+          <div class="row">
+            <div class="col-2">
+              <li class="hour">Now</li>
+              <li class="emoji">☁️</li>
+              <li class="temp-hour">20</li>
+            </div>
+            <div class="col-2">
+              <li class="hour">Now</li>
+              <li class="emoji">☁️</li>
+              <li class="temp-hour">20</li>
+            </div>
+            <div class="col-2">
+              <li class="hour">Now</li>
+              <li class="emoji">☁️</li>
+              <li class="temp-hour">20</li>
+            </div>
+            <div class="col-2">
+              <li class="hour">Now</li>
+              <li class="emoji">☁️</li>
+              <li class="temp-hour">20</li>
+            </div>
+            <div class="col-2">
+              <li class="hour">Now</li>
+              <li class="emoji">☁️</li>
+              <li class="temp-hour">20</li>
+            </div>
+            <div class="col-2">
+              <li class="hour">Now</li>
+              <li class="emoji">☁️</li>
+              <li class="temp-hour">20</li>
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="data">
-        <div class="row">
-          <div class="col-4">
-            <ul>
-              <li class="humifity">Humidity</li>
-              <li class="humidity-value">68%</li>
-            </ul>
-          </div>
-          <div class="col-4">
-            <ul>
-              <li class="wind">Wind</li>
-              <li class="wind-value">68%</li>
-            </ul>
-          </div>
-          <div class="col-4">
-            <ul>
-              <li class="precipitation">Precipitation</li>
-              <li class="precipitation-value">68%</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <hr />
-
-      <div class="forecast">
-        <div class="row">
-          <div class="col-2">
-            <li class="hour">Now</li>
-            <li class="emoji">☁️</li>
-            <li class="temp-hour">20</li>
-          </div>
-          <div class="col-2">
-            <li class="hour">Now</li>
-            <li class="emoji">☁️</li>
-            <li class="temp-hour">20</li>
-          </div>
-          <div class="col-2">
-            <li class="hour">Now</li>
-            <li class="emoji">☁️</li>
-            <li class="temp-hour">20</li>
-          </div>
-          <div class="col-2">
-            <li class="hour">Now</li>
-            <li class="emoji">☁️</li>
-            <li class="temp-hour">20</li>
-          </div>
-          <div class="col-2">
-            <li class="hour">Now</li>
-            <li class="emoji">☁️</li>
-            <li class="temp-hour">20</li>
-          </div>
-          <div class="col-2">
-            <li class="hour">Now</li>
-            <li class="emoji">☁️</li>
-            <li class="temp-hour">20</li>
-          </div>
-        </div>
-      </div>
+      <small class="open-sorce">
+        <a
+          href="https://github.com/A-Maia/Final-Project-web-app"
+          target="_blank"
+          >Open source code</a
+        >, by Ana Maia
+      </small>
     </div>
   </body>
 </html>

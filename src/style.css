@@ -1,0 +1,52 @@
+p {
+  margin-top: 15px;
+  margin-bottom: 0;
+  font-size: 20px;
+}
+
+h1 {
+  line-height: 30px;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+}
+
+.wrapper {
+  max-width: 800px;
+  margin: 25px auto;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.temperature {
+  font-size: 60px;
+  margin-top: 0px;
+  text-align: right;
+  line-height: 1;
+}
+.units {
+  font-size: 18px;
+  position: relative;
+  top: -30px;
+}
+
+.state,
+.max-temp,
+.min-temp {
+  text-align: left;
+  margin-left: 50px;
+}
+
+.forecast {
+  margin-bottom: 15px;
+}
+
+.open-sorce {
+  text-align: left;
+}
