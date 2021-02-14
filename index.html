@@ -15,6 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
   </head>
 
@@ -23,20 +24,23 @@
       <div class="wrapper">
         <div class="top">
           <p>Saturday, Jun 15</p>
-          <h1>London</h1>
+          <h1 id="city">City</h1>
           <img src="image/sun.jpeg" alt="sun with sunglasses" />
         </div>
 
         <div class="data-temp">
           <div class="row">
             <div class="col-6">
-              <p class="temperature">21<span class="units">°C|F</span></p>
+              <div class="temp-units">
+                <span class="temperature" id="temperature"> Temp</span>
+                <span class="units">°C|F</span>
+              </div>
             </div>
             <div class="col-6">
               <ul>
-                <li class="state">Cloud</li>
-                <li class="max-temp">↑ 20</li>
-                <li class="min-temp">↓ 6</li>
+                <li class="conditions" id="conditions">Cloud</li>
+                <li class="max-temp" id="max-temp"></li>
+                <li class="min-temp" id="min-temp"></li>
               </ul>
             </div>
           </div>
@@ -46,20 +50,20 @@
           <div class="row">
             <div class="col-4">
               <ul>
-                <li class="humifity">Humidity</li>
-                <li class="humidity-value">68%</li>
+                <li class="humidity">Humidity</li>
+                <li class="humidity-value" id="humidity"></li>
               </ul>
             </div>
             <div class="col-4">
               <ul>
                 <li class="wind">Wind</li>
-                <li class="wind-value">68%</li>
+                <li class="wind-value" id="wind"></li>
               </ul>
             </div>
             <div class="col-4">
               <ul>
                 <li class="precipitation">Precipitation</li>
-                <li class="precipitation-value">68%</li>
+                <li class="precipitation-value" id="precipitation">68</li>
               </ul>
             </div>
           </div>
@@ -109,5 +113,6 @@
         >, by Ana Maia
       </small>
     </div>
+    <script src="src/script.js"></script>
   </body>
 </html>

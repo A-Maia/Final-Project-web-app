@@ -10,6 +10,7 @@ h1 {
 
 li {
   list-style: none;
+  text-transform: capitalize;
 }
 
 .container {
@@ -24,19 +25,23 @@ li {
   border-radius: 5px;
 }
 
+.temp-units {
+  text-align: right;
+  margin-right: 50px;
+}
 .temperature {
   font-size: 60px;
   margin-top: 0px;
-  text-align: right;
   line-height: 1;
 }
+
 .units {
   font-size: 18px;
   position: relative;
   top: -30px;
 }
 
-.state,
+.conditions,
 .max-temp,
 .min-temp {
   text-align: left;
