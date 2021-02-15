@@ -39,6 +39,7 @@ function showCurrentData(response) {
   let descriptionCurrent = document.querySelector("#conditions");
   let humidityCurrent = document.querySelector("#humidity");
   let windCurrent = document.querySelector("#wind");
+  let feelsLikeCurrent = document.querySelector("#feels");
   let maxTempCurrent = document.querySelector("#max-temp");
   let minTempCurrent = document.querySelector("#min-temp");
   let iconCurrent = document.querySelector("#image");
@@ -48,6 +49,7 @@ function showCurrentData(response) {
   descriptionCurrent.innerHTML = response.data.weather[0].description;
   humidityCurrent.innerHTML = `${response.data.main.humidity}%`;
   windCurrent.innerHTML = `${Math.round(response.data.wind.speed)}km/h`;
+  feelsLikeCurrent.innerHTML = `${Math.round(response.data.main.feels_like)}°C`;
   maxTempCurrent.innerHTML = `↑${Math.round(response.data.main.temp_max)}°C`;
   minTempCurrent.innerHTML = `↓${Math.round(response.data.main.temp_min)}°C`;
   iconCurrent.setAttribute(
@@ -57,8 +59,20 @@ function showCurrentData(response) {
   iconCurrent.setAttribute("alt", response.data.weather[0].description);
 }
 
-let apiKey = "3cd7c0aa89391f850a62418573a9be62";
-let city = "London";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+//Search Engine
+function inputCity(city) {
+  city = city.trim();
+  city = city.toUpperCase();
+  let apiKey = "3cd7c0aa89391f850a62418573a9be62";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showCurrentData);
+}
 
-axios.get(apiUrl).then(showCurrentData);
+function citySearch(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#searchInput").value;
+  inputCity(cityInput);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", citySearch);
