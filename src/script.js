@@ -44,7 +44,9 @@ function showCurrentData(response) {
   let minTempCurrent = document.querySelector("#min-temp");
   let iconCurrent = document.querySelector("#image");
 
-  temperatureCurrent.innerHTML = Math.round(response.data.main.temp);
+  celsiusTemperature = response.data.main.temp;
+
+  temperatureCurrent.innerHTML = Math.round(celsiusTemperature);
   cityCurrent.innerHTML = response.data.name;
   descriptionCurrent.innerHTML = response.data.weather[0].description;
   humidityCurrent.innerHTML = `${response.data.main.humidity}%`;
@@ -74,5 +76,33 @@ function citySearch(event) {
   inputCity(cityInput);
 }
 
+//unit converter
+function showTempFahrenheit(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#temperature");
+  celsius.classList.remove("active");
+  fahrenheit.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperature.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function showTempCelsius(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#temperature");
+  celsius.classList.add("active");
+  fahrenheit.classList.remove("active");
+  temperature.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", citySearch);
+
+let fahrenheit = document.querySelector("#unitsF");
+fahrenheit.addEventListener("click", showTempFahrenheit);
+
+let celsius = document.querySelector("#unitsC");
+celsius.addEventListener("click", showTempCelsius);
+
+inputCity("London");

@@ -17,6 +17,10 @@ li {
   text-transform: capitalize;
 }
 
+a {
+  text-decoration: none;
+}
+
 .container {
   font-family: "Open Sans", sans-serif;
   text-align: center;
@@ -56,6 +60,7 @@ li {
   margin-bottom: 15px;
 }
 
-.open-sorce {
-  text-align: left;
+.data-temp .active {
+  color: black;
+  cursor: default;
 }
