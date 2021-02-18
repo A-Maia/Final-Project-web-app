@@ -106,3 +106,20 @@ let celsius = document.querySelector("#unitsC");
 celsius.addEventListener("click", showTempCelsius);
 
 inputCity("London");
+
+function currentPosition(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let apiKey = "3cd7c0aa89391f850a62418573a9be62";
+  let units = "metric";
+  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+  axios.get(url).then(showCurrentData);
+}
+
+function getCurrentPosition(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(currentPosition);
+}
+
+let button = document.querySelector(".button");
+button.addEventListener("click", getCurrentPosition);

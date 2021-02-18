@@ -1,5 +1,6 @@
 form {
   margin: 15px;
+  width: 100%;
 }
 
 p {
@@ -33,6 +34,30 @@ a {
   border-radius: 5px;
 }
 
+.input-container {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.input-container i {
+  position: absolute;
+}
+
+.icon {
+  margin: 13px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.button {
+  padding: 6px 12px;
+  width: 40%;
+  background-clip: padding-box;
+  border: 1px solid rgb(202, 221, 254, 0.5);
+  border-radius: 0.25rem;
+}
+
 .temp-units {
   text-align: right;
   margin-right: 50px;
@@ -54,6 +79,10 @@ a {
 .min-temp {
   text-align: left;
   margin-left: 50px;
+}
+
+.wind-value {
+  text-transform: lowercase;
 }
 
 .forecast {
