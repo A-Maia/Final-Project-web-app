@@ -35,7 +35,7 @@ a {
 }
 
 .input-container {
-  width: 100%;
+  max-width: 770px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -51,10 +51,9 @@ a {
 }
 
 .button {
-  padding: 6px 12px;
-  width: 40%;
-  background-clip: padding-box;
-  border: 1px solid rgb(202, 221, 254, 0.5);
+  padding: 18px 19px;
+
+  border: 1px solid #ced4da;
   border-radius: 0.25rem;
 }
 
