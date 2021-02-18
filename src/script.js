@@ -31,6 +31,20 @@ let year = now.getFullYear();
 let dateCurrent = document.querySelector("#date");
 dateCurrent.innerHTML = `${weekday}, ${month} ${year}`;
 
+function formatHour(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${hours}:${minutes}`;
+}
+
 // Current data - temperature related
 
 function showCurrentData(response) {
@@ -61,13 +75,40 @@ function showCurrentData(response) {
   iconCurrent.setAttribute("alt", response.data.weather[0].description);
 }
 
-//Search Engine
+//Search Engine + forecast
+
+function showForecast(response) {
+  console.log(response.data.list[0]);
+  let forecastElement = document.querySelector("#forecast");
+
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+  <div class="col-2">
+              <li class="hour">${formatHour(forecast.dt * 1000)}</li>
+              <li class="emoji"><img src="http://openweathermap.org/img/wn/${
+                forecast.weather[0].icon
+              }@2x.png" /> </li>
+              <li class="temp-hour">${Math.round(
+                forecast.main.temp_max
+              )}|${Math.round(forecast.main.temp_min)}</li>
+            </div>
+`;
+  }
+}
+
 function inputCity(city) {
   city = city.trim();
   city = city.toUpperCase();
   let apiKey = "3cd7c0aa89391f850a62418573a9be62";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showCurrentData);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
 }
 
 function citySearch(event) {
@@ -105,7 +146,7 @@ fahrenheit.addEventListener("click", showTempFahrenheit);
 let celsius = document.querySelector("#unitsC");
 celsius.addEventListener("click", showTempCelsius);
 
-inputCity("London");
+inputCity("Lisbon");
 
 function currentPosition(position) {
   let latitude = position.coords.latitude;
