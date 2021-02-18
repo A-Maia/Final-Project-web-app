@@ -155,6 +155,9 @@ function currentPosition(position) {
   let units = "metric";
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
   axios.get(url).then(showCurrentData);
+
+  let searchInput = document.querySelector("#searchInput");
+  searchInput.value = "";
 }
 
 function getCurrentPosition(event) {
